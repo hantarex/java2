@@ -1,5 +1,7 @@
 package geekbrains.java_2.lesson_3;
 
+import java.sql.Connection;
+
 public class PhoneEntry {
     private String email;
     private String lastName;
