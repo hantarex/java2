@@ -15,6 +15,6 @@ public class JTextFieldCustom extends JTextField {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (getText().isEmpty() && !focus) g.drawString("Введите сообщение", 2, 14);
+        if (getText().isEmpty() && !focus) g.drawString("Введите сообщение", 2, 17);
     }
 }

@@ -8,11 +8,13 @@ public class MainWindow extends JFrame {
     public MainWindow(){
         setTitle(title);
         setBounds(300,300,400,400);
-        setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         new MenuBar(this);
         TextArea text_area=new TextArea(this);
-        new InputArea(this,(JTextAreaCustom)text_area.text_area);
+        JPanel input_area = new JPanel(new BorderLayout());
+        new InputArea(input_area,(JTextAreaCustom)text_area.text_area);
+        add(input_area,BorderLayout.SOUTH);
         setVisible(true);
     }
 }
