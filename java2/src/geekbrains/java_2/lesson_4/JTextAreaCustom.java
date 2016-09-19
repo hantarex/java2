@@ -1,7 +1,6 @@
 package geekbrains.java_2.lesson_4;
 
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class JTextAreaCustom extends JTextArea{
