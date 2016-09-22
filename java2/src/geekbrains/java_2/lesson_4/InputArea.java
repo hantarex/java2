@@ -17,7 +17,7 @@ public class InputArea extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!input.getText().trim().isEmpty()) {
-                    text_area.append(input.getText() + "\n");
+                    text_area.appendAndSend(input.getText() + "\n");
                     input.setText("");
                     input.requestFocus();
                 }
@@ -27,7 +27,7 @@ public class InputArea extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!input.getText().trim().isEmpty()) {
-                    text_area.append(input.getText() + "\n");
+                    text_area.appendAndSend(input.getText() + "\n");
                     input.setText("");
                 }
             }
