@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.StringJoiner;
 
 public class MainClass {
     private static int port=8181;
@@ -55,11 +54,11 @@ class SocketSProcessor implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Консоль запущена");
         new Thread(new Runnable() {
             @Override
             public void run() {
                 String input;
+                System.err.println("Консоль запущена");
                 try{
                     while(console.hasNextLine()){
                         input=console.nextLine();
