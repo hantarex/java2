@@ -1,16 +1,16 @@
 package geekbrains.java_2.SocketServer;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainClass {
     private static int port = 8181;
     private static ServerSocket ss;
+    private static ArrayList<SocketSProcessor> Clientlist = new ArrayList<>();
 
     public static void main(String[] args) {
         Socket sock = null;
@@ -20,6 +20,11 @@ public class MainClass {
             System.err.println("Не могу создать сервер на порту " + port);
             System.exit(1);
         }
+
+        Thread ct = new Thread(new ConsoleThread(Clientlist)); // Поток со сканером консоли
+        ct.setDaemon(true);
+        ct.start();
+
         System.err.println("Сервер запущен на " + port + " порту");
         try {
             while (true) {
@@ -28,8 +33,7 @@ public class MainClass {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.err.println("Клиент подключился");
-                new Thread(new SocketSProcessor(ss, sock)).start();
+                Clientlist.add(new SocketSProcessor(ss,sock)); // Добавляем клиента в коллекцию
             }
         } finally {
             try {
@@ -42,67 +46,84 @@ public class MainClass {
     }
 }
 
-class SocketSProcessor implements Runnable {
-    Scanner in;
-    PrintWriter out;
-    Socket sock;
-    ServerSocket serverSocket;
-    Scanner console;
-    boolean is_close = false;
+class SocketSProcessor {
+    private Scanner in;
+    public PrintWriter out;
+    private ServerSocket serverSocket;
 
     SocketSProcessor(ServerSocket serverSocket, Socket sock) {
-        this.sock = sock;
         this.serverSocket = serverSocket;
         try {
             in = new Scanner(sock.getInputStream());
             out = new PrintWriter(sock.getOutputStream());
-            console = new Scanner(System.in);
+            System.err.println("Клиент подключился c IP"+sock.getRemoteSocketAddress());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        new Thread(new Runnable() {
+
+        Thread in_stream = new Thread(new Runnable() { // Создаём поток для клиента
             @Override
             public void run() {
                 String input;
-                while (console.hasNextLine()) {
-                    if (is_close) break;
-                    input = console.nextLine();
-                    out.println(input);
-                    out.flush();
-                    System.err.println("Сервер: " + input);
+                while (in.hasNextLine()) {
+                    input = in.nextLine();
+                    if (input.equals("END")) break;
+                    if (input.equals("STOP")) {
+                        ServerStop();
+                        System.exit(1);
+                    }
+                    System.err.println("Клиент: " + input);
+                }
+                try {
+                    out.close();
+                    in.close();
+                    sock.close();
+                    System.err.println("Клиент отключился c IP"+sock.getRemoteSocketAddress());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-        }).start();
+        });
+        in_stream.setDaemon(true);
+        in_stream.start();
     }
 
-    @Override
-    public void run() {
-        String input;
-        while (in.hasNextLine()) {
-            input = in.nextLine();
-            if (input.equals("END")) break;
-            if (input.equals("STOP")) {
-                ServerStop();
-                System.exit(1);
-            }
-            System.err.println("Клиент: " + input);
-        }
-        try {
-            out.close();
-            in.close();
-            sock.close();
-            is_close = true;
-            System.err.println("Клиент отключился");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void ServerStop() {
         try {
             serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+}
+
+class ConsoleThread implements Runnable {
+    private ArrayList<SocketSProcessor> Clientlist;
+    private Scanner console;
+    ConsoleThread(ArrayList<SocketSProcessor> Clientlist){
+        this.Clientlist=Clientlist;
+        console = new Scanner(System.in);
+    }
+
+    private void SendToAll(String msg){
+        for(SocketSProcessor s:Clientlist){
+            s.out.println(msg);
+            s.out.flush();
+        }
+    }
+
+    @Override
+    public void run() {
+        String input;
+        try {
+            while (console.hasNextLine()) {
+                input = console.nextLine();
+                SendToAll(input);
+                System.err.println("Сервер: " + input);
+            }
+        } finally {
+            console.close();
         }
     }
 }
