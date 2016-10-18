@@ -5,6 +5,11 @@ import java.awt.*;
 
 public class JTextFieldCustom extends JTextField {
     public boolean focus;
+    private String hint="Введите сообщение";
+
+    public JTextFieldCustom(String hint){
+        this.hint=hint;
+    }
 
     public JTextFieldCustom(int columns) {
         super(columns);
@@ -13,6 +18,6 @@ public class JTextFieldCustom extends JTextField {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (getText().isEmpty() && !focus) g.drawString("Введите сообщение", 2, 17);
+        if (getText().isEmpty() && !focus) g.drawString(hint, 2, 17);
     }
 }
