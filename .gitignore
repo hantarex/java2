@@ -1,6 +1,4 @@
 .idea/*
 out/*
-*.xml
 *.iml
 *.MF
-*.class
