@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <array name="questions">
     <item name="questions" value="yes">1q</item>
     <item name="questions" value="no">2q</item>
