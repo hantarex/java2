@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>OWater.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+OWater.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">geekbrains.java_2.lesson_1; 
+ 
+</span><span class="s0">public class </span><span class="s1">OWater </span><span class="s0">extends </span><span class="s1">Obstacle{ 
+    </span><span class="s0">public </span><span class="s1">OWater(</span><span class="s0">float </span><span class="s1">size) { 
+        </span><span class="s0">this</span><span class="s1">.size=size; 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public void </span><span class="s1">doIt(Animal a) { 
+        </span><span class="s0">if</span><span class="s1">(a </span><span class="s0">instanceof </span><span class="s1">Swimable){ 
+            ((Swimable)a).swim(size); 
+        } 
+        </span><span class="s0">else </span><span class="s1">{ 
+            a.getOutOfDist(); 
+        } 
+    } 
+} 
+</span></pre>
+</body>
+</html>

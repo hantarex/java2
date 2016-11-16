@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>MainClass.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,0,255); }
+.s3 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+MainClass.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">geekbrains.java_2.lesson_1; 
+ 
+</span><span class="s0">public class </span><span class="s1">MainClass { 
+    </span><span class="s0">public static void </span><span class="s1">main(String[] args) { 
+        Animal[] an = </span><span class="s0">new </span><span class="s1">Animal[</span><span class="s2">4</span><span class="s1">]; 
+        an[</span><span class="s2">0</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Cat(</span><span class="s3">&quot;Barsik&quot;</span><span class="s1">); 
+        an[</span><span class="s2">1</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Dog(</span><span class="s3">&quot;Tomas&quot;</span><span class="s1">); 
+        an[</span><span class="s2">2</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Duck(</span><span class="s3">&quot;Donald&quot;</span><span class="s1">); 
+        an[</span><span class="s2">3</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Horse(</span><span class="s3">&quot;Pegas&quot;</span><span class="s1">); 
+ 
+        Obstacle[] obs=</span><span class="s0">new </span><span class="s1">Obstacle[</span><span class="s2">4</span><span class="s1">]; 
+        obs[</span><span class="s2">0</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OCross(</span><span class="s2">200</span><span class="s1">); 
+        obs[</span><span class="s2">1</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OWater(</span><span class="s2">1000</span><span class="s1">); 
+        obs[</span><span class="s2">2</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OJump(</span><span class="s2">1.5f</span><span class="s1">); 
+        obs[</span><span class="s2">3</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OCross(</span><span class="s2">800</span><span class="s1">); 
+ 
+        </span><span class="s0">for</span><span class="s1">(Animal a : an){ 
+            </span><span class="s0">for</span><span class="s1">(Obstacle o : obs){ 
+                o.doIt(a); 
+                </span><span class="s0">if</span><span class="s1">(!a.isOnDistance()) </span><span class="s0">break</span><span class="s1">; 
+            } 
+        } 
+ 
+        </span><span class="s0">for</span><span class="s1">(Animal a : an){ 
+            </span><span class="s0">if</span><span class="s1">(a.isOnDistance()) a.printInfo(); 
+        } 
+        System.out.println(</span><span class="s3">&quot;Домашнее задание:&quot;</span><span class="s1">); 
+        Animal[] an2 = </span><span class="s0">new </span><span class="s1">Animal[</span><span class="s2">4</span><span class="s1">]; 
+        an2[</span><span class="s2">0</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Cat(</span><span class="s3">&quot;Barsik1&quot;</span><span class="s1">); 
+        an2[</span><span class="s2">1</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Dog(</span><span class="s3">&quot;Tomas1&quot;</span><span class="s1">); 
+        an2[</span><span class="s2">2</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Duck(</span><span class="s3">&quot;Donald1&quot;</span><span class="s1">); 
+        an2[</span><span class="s2">3</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">Horse(</span><span class="s3">&quot;Pegas1&quot;</span><span class="s1">); 
+ 
+ 
+        Team t1 = </span><span class="s0">new </span><span class="s1">Team(</span><span class="s3">&quot;1 Команда&quot;</span><span class="s1">, an); 
+        Team t2 = </span><span class="s0">new </span><span class="s1">Team(</span><span class="s3">&quot;2 Команда&quot;</span><span class="s1">, an2); 
+ 
+        Obstacle[] obs1=</span><span class="s0">new </span><span class="s1">Obstacle[</span><span class="s2">4</span><span class="s1">]; 
+        obs1[</span><span class="s2">0</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OCross(</span><span class="s2">200</span><span class="s1">); 
+        obs1[</span><span class="s2">1</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OWater(</span><span class="s2">1000</span><span class="s1">); 
+        obs1[</span><span class="s2">2</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OJump(</span><span class="s2">1.5f</span><span class="s1">); 
+        obs1[</span><span class="s2">3</span><span class="s1">]=</span><span class="s0">new </span><span class="s1">OCross(</span><span class="s2">800</span><span class="s1">); 
+ 
+        Course course = </span><span class="s0">new </span><span class="s1">Course(obs1); 
+ 
+        course.dolt(t1); 
+        course.dolt(t2); 
+ 
+        t1.ShowResults(); 
+        t2.ShowResults(); 
+ 
+ 
+    } 
+ 
+ 
+} 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Cat.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+.s3 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Cat.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">geekbrains.java_2.lesson_1; 
+ 
+</span><span class="s0">public class </span><span class="s1">Cat </span><span class="s0">extends </span><span class="s1">Animal </span><span class="s0">implements </span><span class="s1">Jumpable{ 
+    </span><span class="s0">public </span><span class="s1">Cat(String name){ 
+        </span><span class="s0">this</span><span class="s1">.name=name; 
+        </span><span class="s0">this</span><span class="s1">.animalType=</span><span class="s2">&quot;Cat&quot;</span><span class="s1">; 
+        </span><span class="s0">this</span><span class="s1">.onDistance=</span><span class="s0">true</span><span class="s1">; 
+        </span><span class="s0">this</span><span class="s1">.maxRunDistance=</span><span class="s3">500</span><span class="s1">; 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public void </span><span class="s1">jump(</span><span class="s0">float </span><span class="s1">height) { 
+        </span><span class="s0">if</span><span class="s1">(height &lt; </span><span class="s3">2f</span><span class="s1">){ 
+            System.out.println(animalType + </span><span class="s2">&quot; &quot; </span><span class="s1">+ name + </span><span class="s2">&quot; jump ok&quot;</span><span class="s1">); 
+        } 
+        </span><span class="s0">else </span><span class="s1">{ 
+            getOutOfDist(); 
+        } 
+    } 
+} 
+</span></pre>
+</body>
+</html>

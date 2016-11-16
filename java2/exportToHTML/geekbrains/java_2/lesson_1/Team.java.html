@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Team.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Team.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">geekbrains.java_2.lesson_1; 
+ 
+</span><span class="s0">public class </span><span class="s1">Team { 
+    </span><span class="s0">protected </span><span class="s1">String name; 
+    </span><span class="s0">protected </span><span class="s1">Animal[] animals; 
+ 
+    </span><span class="s0">public </span><span class="s1">Team(String name,Animal[] animals){ 
+        </span><span class="s0">this</span><span class="s1">.name=name; 
+        </span><span class="s0">this</span><span class="s1">.animals=animals; 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">printInfo(){ 
+        </span><span class="s0">for</span><span class="s1">(Animal a : animals){ 
+            System.out.println(name+ </span><span class="s2">&quot; &quot;</span><span class="s1">+ a.animalType + </span><span class="s2">&quot; &quot; </span><span class="s1">+a.name); 
+        } 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">ShowResults(){ 
+        </span><span class="s0">for</span><span class="s1">(Animal a : animals){ 
+            System.out.println(name+ </span><span class="s2">&quot; &quot;</span><span class="s1">+ a.animalType + </span><span class="s2">&quot; &quot; </span><span class="s1">+a.name + (a.isOnDistance()?</span><span class="s2">&quot; ok&quot;</span><span class="s1">:</span><span class="s2">&quot; out&quot;</span><span class="s1">)); 
+        } 
+    } 
+} 
+</span></pre>
+</body>
+</html>

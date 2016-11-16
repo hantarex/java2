@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Animal.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,0); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Animal.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">geekbrains.java_2.lesson_1; 
+ 
+</span><span class="s0">public abstract class </span><span class="s1">Animal { 
+    </span><span class="s0">protected </span><span class="s1">String name; 
+    </span><span class="s0">protected boolean </span><span class="s1">onDistance; 
+    </span><span class="s0">protected </span><span class="s1">String animalType; 
+    </span><span class="s0">protected int </span><span class="s1">maxRunDistance; 
+ 
+    </span><span class="s0">public void </span><span class="s1">cross(</span><span class="s0">float </span><span class="s1">dist){ 
+        </span><span class="s0">if</span><span class="s1">(dist &lt; maxRunDistance){ 
+            System.out.println(animalType + </span><span class="s2">&quot; &quot; </span><span class="s1">+ name + </span><span class="s2">&quot; run ok&quot;</span><span class="s1">); 
+        } 
+        </span><span class="s0">else</span><span class="s1">{ 
+            getOutOfDist(); 
+        } 
+    } 
+ 
+    </span><span class="s0">public boolean </span><span class="s1">isOnDistance() { 
+        </span><span class="s0">return </span><span class="s1">onDistance; 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">setOnDistance(</span><span class="s0">boolean </span><span class="s1">onDistance) { 
+        </span><span class="s0">this</span><span class="s1">.onDistance = onDistance; 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">printInfo(){ 
+        System.out.println(</span><span class="s2">&quot;name &quot;</span><span class="s1">+name); 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">getOutOfDist(){ 
+        onDistance=</span><span class="s0">false</span><span class="s1">; 
+    } 
+ 
+} 
+</span></pre>
+</body>
+</html>
