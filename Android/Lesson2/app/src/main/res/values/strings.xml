@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Lesson2</string>
+    <string name="headText">Вопрос:</string>
+    <string name="btn_prev">Prev</string>
+    <string name="btn_next">Next</string>
+    <string name="Question">jaks hdjakugs diuyqgoiweguasdasdasdqowieugq oiweug qoiwue goqiweu goqiuwgeoiuq gwoeqwe</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+</resources>
