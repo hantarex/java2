@@ -1,0 +1,5 @@
+<array name="questions">
+    <item name="questions" value="yes">1q</item>
+    <item name="questions" value="no">2q</item>
+    <item name="questions" value="yes">3q</item>
+</array>
