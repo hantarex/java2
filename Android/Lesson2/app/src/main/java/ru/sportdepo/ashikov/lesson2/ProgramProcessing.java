@@ -24,7 +24,7 @@ public class ProgramProcessing {
     }
     public void showQuestion(int id){
         Question q = questions.get(id);
-        canvas.showQuestion(q.getQuestion());
+        canvas.showQuestion(q);
         canvas.showButton(q);
     }
 
@@ -70,5 +70,13 @@ public class ProgramProcessing {
         q.setUser_answer(answer);
         canvas.changeColor(view,q.getAnswer()==(q.isUser_answer().equals("1")?true:false));
         questions.set(active_id,q);
+    }
+
+    public void btnYes(View view) {
+        Question q=questions.get(active_id);
+        Log.e("Right Answer",q.getAnswer()?"yes":"no");
+        setAnswer(view,true);
+        updateProgress();
+        Next(view);
     }
 }

@@ -33,4 +33,6 @@ public class MainActivity extends AppCompatActivity {
     public void btnNo(View view) {
         programProcessing.btnNo(view);
     }
+
+    public void btnYes(View view) {programProcessing.btnYes(view);}
 }
