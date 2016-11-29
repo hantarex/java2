@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <HeadMenu>
+        <item id="0">Волосы</item>
+        <item id="1">Ногти</item>
+        <item id="2">Адрес</item>
+    </HeadMenu>
+    <ParentMenu>
+        <item parent="0" id="0" text="Здесь тест про Бобрик">Бобрик</item>
+        <item parent="0" id="1" text="Здесь тест про Модельная">Модельная</item>
+        <item parent="0" id="2" text="Здесь тест про 3мм">3мм</item>
+        <item parent="1" id="0" text="Здесь тест про Классический маникюр">Классический маникюр</item>
+        <item parent="1" id="1" text="Здесь тест про Аппаратный маникюр">Аппаратный маникюр</item>
+        <item parent="1" id="2" text="Здесь тест про Аппаратный педикюр">Аппаратный педикюр</item>
+    </ParentMenu>
+</root>
