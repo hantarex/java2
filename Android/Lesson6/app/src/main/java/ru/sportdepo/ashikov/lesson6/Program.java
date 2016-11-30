@@ -17,6 +17,7 @@ public class Program {
     AppCompatActivity context;
     Integer id=null;
     static Map i;
+    String Tag;
     public Program(AppCompatActivity context) {
         this.context=context;
     }
@@ -48,7 +49,8 @@ public class Program {
         this.id=id;
         addListMain(values, Tag, Target, TargetClass);
     }
-    protected void addListMain(Map values, String Tag, final String Target, final Class TargetClass) {
+    protected void addListMain(Map values, final String Tag, final String Target, final Class TargetClass) {
+        this.Tag=Tag;
         ScrollView scrollView= (ScrollView) context.findViewById(R.id.scroll_main);
         ListView list = new ListView(context.getApplicationContext());
         ArrayList items = new ArrayList();
@@ -71,7 +73,12 @@ public class Program {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(context.getApplicationContext(),TargetClass);
+                Intent intent=null;
+                if(i==2 && Tag.equals(MainActivity.HEAD_MENU)) {
+                    intent = new Intent(context.getApplicationContext(), Delivery.class);
+                } else {
+                    intent = new Intent(context.getApplicationContext(), TargetClass);
+                }
                 intent.putExtra(MainActivity.PAGE, Target);
                 intent.putExtra(MainActivity.ID,i);
                 if(id!=null) intent.putExtra(MainActivity.PARENT,id);

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lesson6</string>
     <string name="salon_name">Салон</string>
+    <string name="delivery">Здесь про доставку</string>
 </resources>
