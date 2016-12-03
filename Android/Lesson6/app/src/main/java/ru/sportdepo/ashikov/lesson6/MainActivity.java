@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         XMLParser xml = new XMLParser(this);
         values = xml.returnArrayFromXml();
+        System.out.println(values);
 
         Program program=new Program(this);
         program.addListMain(values,HEAD_MENU,SUB_CAT,SubCatalog.class);
